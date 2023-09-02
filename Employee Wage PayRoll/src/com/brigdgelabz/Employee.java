@@ -55,11 +55,10 @@ public class Employee {
         System.out.println("Employee is Present for part time for "+count1+ " day");
         System.out.println("Employee is Absent for "+count2+ " day");
 
-        if (emphr >=100){
-           System.out.println("\nEmployee Must be Working for More than 100 hr in month" +
-                   "\nAnd Employee is work for "+emphr+" hr in month");
+       
+          
            System.out.println("The Wage of the Employee  for a month is: "+totalWage);
-       }
+       
 
 
     }
