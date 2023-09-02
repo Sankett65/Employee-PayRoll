@@ -57,9 +57,11 @@ public class Employee {
 
         if (emphr >=100){
            System.out.println("\nEmployee Must be Working for More than 100 hr in month" +
-                   "\nAnd Employee is work for "+emphr+" hr in month");
+                   "\n And Employee is work for "+emphr+" hr in month");
            System.out.println("The Wage of the Employee  for a month is: "+totalWage);
-       }
+       }else{
+            System.out.println("The employee is not Work for 100 hrs in Month");
+        }
 
 
     }
