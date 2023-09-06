@@ -3,21 +3,19 @@ package com.brigdgelabz;
 import java.util.Random;
 
 public class Employee {
-    int empCheck = 1;
-    int wagePerHr=20;
-    int full_time = 0;
-    int part_time=2;
-    int wage=0;
-    int totalWage=0;
-    int totalWorkingHr=100;
-    int emphr=0;
-    //   int totalWorkingDays=10;
-    int count =0;
-    int count1=0;
-    int count2=0;
+    public static int empCheck = 1;
+    public static int full_time = 0;
+    public static int part_time=2;
+
+    int emphr=0;     //To count the how much Hour employee is work in month
 
 
-    public void wage() {
+    public void wage(int wagePerHr,int totalWorkingHr) {
+        int wage =0;          // To calculate Wage per day
+        int totalWage=0;      // To calculate Total Wage For a month
+        int count =0;         // To count how much Days the employee is present for full day
+        int count1=0;         // To count how much Days the employee is present for part day
+        int count2=0;         // To count how much Days the employee is absent
         for (int day =1;day<=20;day++) {
             double val = Math.floor(Math.random() * 10) % 3;
             switch ((int) val) {
@@ -49,20 +47,24 @@ public class Employee {
         System.out.println("Employee is Present for part time for "+count1+ " day");
         System.out.println("Employee is Absent for "+count2+ " day");
 
-        if (emphr >=100){
+        if (emphr >=totalWorkingHr){
             System.out.println("\nEmployee Must be Working for More than 100 hr in month" +
                     "\nAnd Employee is work for "+emphr+" hr in month");
             System.out.println("The Wage of the Employee  for a month is: "+totalWage);
         }else{
-            System.out.println("The employee is not Work for 100 hrs in Month");
+            System.out.println("The employee is not Work for "+totalWorkingHr+ "hrs in Month");
         }
     }
 
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Employee Wage PayRoll");
-
         Employee obj = new Employee();
-        obj.wage();
+        System.out.println("\n!!! For Tata Company !!!");
+       obj.wage(30,150);
+        System.out.println("\n!!! For Google Company !!!");
+        obj.wage(20,100);
+        System.out.println("\n!!! For Apple Company !!!");
+        obj.wage(10,120);
     }
 }
