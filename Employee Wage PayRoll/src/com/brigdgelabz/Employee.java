@@ -1,7 +1,7 @@
 package com.brigdgelabz;
 
 
-
+import java.util.ArrayList;
 
 interface EmployeeWage{
      void addCompany(int totalWorkingHr, String companyName, int totalWorkingDays, int totalWageperday);
@@ -22,6 +22,15 @@ interface EmployeeWage{
          this.totalWageperday = totalWageperday;
      }
 
+     @Override
+     public String toString() {
+         return "CompanyEmpWage{" +
+                 "totalWorkingHr=" + totalWorkingHr +
+                 ", companyName='" + companyName + '\'' +
+                 ", totalWorkingDays=" + totalWorkingDays +
+                 ", totalWageperday=" + totalWageperday +
+                 '}';
+     }
  }
    public  class Employee implements EmployeeWage{
 
@@ -30,25 +39,26 @@ interface EmployeeWage{
        public static int part_time = 2;
 
 
-       private CompanyEmpWage [] company;
+       ArrayList<CompanyEmpWage> companies;
 
-      private int number=0;
        public Employee() {
-           company= new CompanyEmpWage[5];
+           companies= new ArrayList<>();
        }
 
         public void addCompany(int totalWorkingHr, String companyName, int totalWorkingDays, int totalWageperday){
-           company[number]=new CompanyEmpWage(totalWorkingHr,companyName,totalWorkingDays,totalWageperday);
+            CompanyEmpWage company=new CompanyEmpWage(totalWorkingHr,companyName,totalWorkingDays,totalWageperday);
             //System.out.println(no);
-           number++;
+           companies.add(company);
        }
 
       public  void wage(){
-           for (int i =0;i<number;i++){
-               int totalEmpWage=this.wage(company[i]);
-               System.out.println("Total Employee Wage for company "+company[i].companyName+" is "+totalEmpWage);
+           for (int i =0;i<companies.size();i++){
+               int totalEmpWage=this.wage(companies.get(i));
+               System.out.println("Total Employee Wage for company "+companies.get(i).companyName+" is "+totalEmpWage);
            }
        }
+
+
        private int wage(CompanyEmpWage commpanyEmpWage) {
         int wage =0;
         int count =0;int  count1=0;int  count2=0;
