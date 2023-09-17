@@ -2,6 +2,11 @@ package com.brigdgelabz;
 
 
 
+
+interface EmployeeWage{
+     void addCompany(int totalWorkingHr, String companyName, int totalWorkingDays, int totalWageperday);
+     void wage();
+}
  class CompanyEmpWage {
 
     public  int totalWorkingHr;
@@ -17,17 +22,8 @@ package com.brigdgelabz;
          this.totalWageperday = totalWageperday;
      }
 
-     @Override
-     public String toString() {
-         return "CompanyEmpWage{" +
-                 "totalWorkingHr=" + totalWorkingHr +
-                 ", companyName='" + companyName + '\'' +
-                 ", totalWorkingDays=" + totalWorkingDays +
-                 ", totalWageperday=" + totalWageperday +
-                 '}';
-     }
  }
-   public  class Employee{
+   public  class Employee implements EmployeeWage{
 
        public static int empCheck = 1;
        public static int full_time = 0;
@@ -41,21 +37,18 @@ package com.brigdgelabz;
            company= new CompanyEmpWage[5];
        }
 
-       private void addCompany(int totalWorkingHr, String companyName, int totalWorkingDays, int totalWageperday){
+        public void addCompany(int totalWorkingHr, String companyName, int totalWorkingDays, int totalWageperday){
            company[number]=new CompanyEmpWage(totalWorkingHr,companyName,totalWorkingDays,totalWageperday);
             //System.out.println(no);
            number++;
        }
 
-       private void wage(){
+      public  void wage(){
            for (int i =0;i<number;i++){
                int totalEmpWage=this.wage(company[i]);
                System.out.println("Total Employee Wage for company "+company[i].companyName+" is "+totalEmpWage);
            }
        }
-
-
-
        private int wage(CompanyEmpWage commpanyEmpWage) {
         int wage =0;
         int count =0;int  count1=0;int  count2=0;
