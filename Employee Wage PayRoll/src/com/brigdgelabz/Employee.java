@@ -2,6 +2,8 @@ package com.brigdgelabz;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 interface EmployeeWage{
      void addCompany(int totalWorkingHr, String companyName, int totalWorkingDays, int totalWageperday);
@@ -40,15 +42,18 @@ interface EmployeeWage{
 
 
        ArrayList<CompanyEmpWage> companies;
+       Map<String ,Integer> map;
 
        public Employee() {
            companies= new ArrayList<>();
+           map=new HashMap<>();
        }
 
         public void addCompany(int totalWorkingHr, String companyName, int totalWorkingDays, int totalWageperday){
             CompanyEmpWage company=new CompanyEmpWage(totalWorkingHr,companyName,totalWorkingDays,totalWageperday);
             //System.out.println(no);
            companies.add(company);
+           map.put(companyName,0);
        }
 
       public  void wage(){
@@ -107,6 +112,8 @@ interface EmployeeWage{
         }else{
             System.out.println("The employee is not Work for "+commpanyEmpWage.totalWorkingHr+ "hrs in Month");
         }
+           map.put(commpanyEmpWage.companyName, totalWage);
+         //  System.out.println(map);
            return totalWage;
        }
 
