@@ -117,8 +117,14 @@ interface EmployeeWage{
            return totalWage;
        }
 
+       public int getTotalWage(String companyName)
+       {
+           return map.get(companyName);
+       }
 
-    public static void main(String[] args) {
+
+
+       public static void main(String[] args) {
         System.out.println("Welcome to the Employee Wage PayRoll");
         Employee obj = new Employee();
 //       obj.wage("Tata Company",30,60);
@@ -127,6 +133,10 @@ interface EmployeeWage{
         obj.addCompany(100,"Google",25,40);
         obj.addCompany(80,"Tesla",30,45);
         obj.wage();
+
+        String query="Tata";
+           int totalWage = obj.getTotalWage(query);
+           System.out.println("\nTotal Employee Wage for " + query + " is " + totalWage);
 
     }
 }
